@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>MC Quiz</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				padding: 10px;
+				box-sizing: border-box;
+				
+				
+			}
+			h1{
+				color: white;
+			}
+
+			.question {
+				margin-bottom: 20px;
+			}
+			.question h3 {
+				margin-bottom: 5px;
+
+			}
+
+			footer{
+   			 background-color:rgb(221, 168, 83);
+   			 padding:10px;
+   			 text-align: center;
+   			 color:white;
+}
+
+			button {
+				margin-top: 20px;
+				padding: 10px 20px;
+			}
+			.quizStyle {
+				background: #f3f3f3;
+				width: 100%;
+				max-width: 600px;
+				height: 420px;
+				margin: 50px auto;
+				border-radius: 10px;
+				padding: 30px;
+				border: 3px solid;
+				
+			}
+			.quizStyle h1 {
+				font-size: 25px;
+				color: #000000;
+				font-weight: 600;
+				border-bottom: 1px solid #333;
+				padding-bottom: 20px;
+			}
+			.quiz {
+				padding: 20 px 0;
+			}
+			.quiz h2 {
+				font-size: 18px;
+				color: #000000;
+				font-weight: 600;
+			}
+			.btn {
+				background: #fff;
+				color: #222;
+				font-weight: 500;
+				width: 100%;
+				border: 1px solid #222;
+				padding: 10px;
+				margin: 10px 0;
+				text-align: left;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: all 0.3s;
+			}
+			.btn:hover {
+				background: rgb(39, 84, 138);
+				color: #fff;
+			}
+			.btn.clicked {
+				background: rgb(39, 84, 138);
+				color: #fff;
+			}
+			.next-btn {
+				background: #000;
+				color: #000;
+				font-weight: 500;
+				width: 150px;
+				border: 0;
+				padding: 10px;
+				margin: 20px auto 0;
+				border-radius: 4px;
+				cursor: pointer;
+				display: none;
+			}
+		</style>
+		<head style="background-color:rgb(245, 238, 220)">
+      <h1 style="background-color:rgb(39, 84, 138)">MC Quiz</h1>
+      <table style="width:100%">
+        <tr>
+          <th><a href="Page1.html">Intro</a></th>
+          <th><a href="Page2.html">Mechanism</a></th>
+          <th><a href="Page3.html">Application</th>
+          <th><a href="Page4.html">Cryptocurrency</th>
+          <th><a href="Page5.html">Pros and Cons</th>
+          <th><a href="Page6.html">Future Trend</th>
+          <th><a href="page7.html">MC Quiz</a></th>
+          <th><a href="reference.html">Reference</a></th>
+        </tr>
+        </table>
+    </head>
+    <body style="background-color:rgb(245, 238, 220);">
+	</head>
+	<body>
+		<div class="quizStyle">
+			<h1 id="questionNumber">Question /10</h1>
+
+			<div class="quiz">
+				<h2 id="question">Question goes here</h2>
+				<div id="answer-buttons">
+					<button class="btn">Answer 1</button>
+					<button class="btn">Answer 2</button>
+					<button class="btn">Answer 3</button>
+					<button class="btn">Answer 4</button>
+				</div>
+				<button id="next-btn">Next</button>
+			</div>
+		</div>
+		<script>
+			const questions = [
+				{
+					question:
+						"1. What is the primary principle of blockchain technology?",
+					answers: [
+						{ text: "Centralization", correct: false },
+						{ text: "Decentralization", correct: true },
+						{ text: "Encryption", correct: false },
+						{ text: "Decryption", correct: false },
+					],
+				},
+				{
+					question: "2. What would be used to sign the blockchain transaction?",
+					answers: [
+						{ text: "Private Key", correct: true },
+						{ text: "Public Key", correct: false },
+						{ text: "Password", correct: false },
+						{ text: "Email Address", correct: false },
+					],
+				},
+				{
+					question:
+						"3. Which consensus mechanism would be used to solve complex cryptographic puzzles?",
+					answers: [
+						{ text: "Proof-of-Work", correct: true },
+						{ text: "Proof-of-Stake", correct: false },
+						{ text: "Proof-of-Concept", correct: false },
+						{ text: "Proof-of-Ownership", correct: false },
+					],
+				},
+				{
+					question: "4. Blockchain is more efficient than credit cards.",
+					answers: [
+						{ text: "True", correct: false },
+						{ text: "False", correct: true },
+					],
+				},
+				{
+					question:
+						"5. What financial service is created by using blockchain in a decentralized manner?",
+					answers: [
+						{ text: "Regulated Finance", correct: false },
+						{ text: "Central Banking", correct: false },
+						{ text: "Macrofinance", correct: false },
+						{ text: "Decentralized Finance", correct: true },
+					],
+				},
+				{
+					question:
+						"6. Which is/are the example of how a bitcoin transaction is executed?",
+					answers: [
+						{ text: "Initiation", correct: false },
+						{ text: "Vertification", correct: false },
+						{ text: "Completion", correct: false },
+						{ text: "All of Above", correct: true },
+					],
+				},
+				{
+					question:
+						"7. Which cryptocurrency has the fastest transaction speed in the following selections?",
+					answers: [
+						{ text: "Bitcoin", correct: false },
+						{ text: "Ethereum", correct: true },
+						{ text: "Litecoin", correct: false },
+					],
+				},
+				{
+					question: "8. In which year was Bitcoin launched?",
+					answers: [
+						{ text: "2007", correct: false },
+						{ text: "2008", correct: false },
+						{ text: "2009", correct: true },
+						{ text: "2010", correct: false },
+					],
+				},
+				{
+					question: "9. Which is NOT the disadvantage of Ether?",
+					answers: [
+						{ text: "High Transaction Cost", correct: false },
+						{ text: "Complexity for User", correct: false },
+						{ text: "Environment Concern", correct: true },
+						{ text: "Uncertainty of Regulation", correct: false },
+					],
+				},
+				{
+					question:
+						"10. Which are the 3 mainstream adoptions of blockchain and cryptocurrencies? (Select all the correct answers)",
+					answers: [
+						{ text: "Education", correct: false },
+						{ text: "Finance", correct: true },
+						{ text: "Supply Chain", correct: true },
+						{ text: "Gaming", correct: true },
+					],
+				},
+			];
+
+			const questionElement = document.getElementById("question");
+			const answerButton = document.getElementById("answer-buttons");
+			const nextButton = document.getElementById("next-btn");
+
+			let currentQuestionIndex = 0;
+			let score = 0;
+
+			function startQuiz() {
+				currentQuestionIndex = 0;
+				score = 0;
+				nextButton.innerHTML = "Next";
+				nextButton.onclick = nextQuestion;
+				showQuestion();
+			}
+
+			function showQuestion() {
+				currentQuestionIndex++;
+				let currentQuestion = questions[currentQuestionIndex - 1];
+				questionNumber.innerHTML =
+					"Question " + currentQuestionIndex + "/" + questions.length;
+				questionElement.innerHTML = currentQuestion.question;
+
+				answerButton.innerHTML = "";
+				currentQuestion.answers.forEach((answer) => {
+					const button = document.createElement("button");
+					button.innerHTML = answer.text;
+					button.classList.add("btn");
+					button.onclick = onClick;
+					answerButton.appendChild(button);
+				});
+
+				if (currentQuestionIndex === questions.length) {
+					nextButton.innerHTML = "Submit";
+
+				}
+			}
+
+			function onClick(event) {
+				if (currentQuestionIndex < questions.length) {
+		
+				document.querySelectorAll(".btn").forEach((btn) => { btn.classList.remove("clicked");
+		});
+				event.target.classList.add("clicked");
+				} else {
+		
+				event.target.classList.toggle("clicked");
+					}
+				}
+
+			function nextQuestion() {
+				const selectedAnswers = document.querySelectorAll(".clicked");
+				const currentQ = questions[currentQuestionIndex - 1];
+				if (currentQuestionIndex === questions.length){
+					const selectedTexts = Array.from(selectedAnswers).map(btn => btn.innerHTML);
+					const correctAnswers = currentQ.answers.filter(a => a.correct).map(a => a.text);
+					const isCorrect = selectedTexts.length === correctAnswers.length && selectedTexts.every((text) => correctAnswers.includes(text));
+					if (isCorrect) score += 1;
+				}else{
+					selectedAnswers.forEach((btn) => {currentQ.answers.forEach((a) =>{ if (a.text === btn.innerHTML && a.correct){
+						score += 1;
+					}
+				});
+			 });
+		}
+				// calculate score
+				//document.querySelectorAll(".clicked").forEach((answer) => {
+					//questions[currentQuestionIndex - 1].answers.forEach((a) => {
+						//if (a.text === answer.innerHTML && a.correct) {
+							//if (a.correct) {
+								//score++;
+							//}
+						//}
+					//});
+				//});
+
+				if (currentQuestionIndex < questions.length) {
+					showQuestion();
+				} else {
+					questionElement.innerHTML = `You have answered ${score} out of ${questions.length} questions correctly.`;
+					answerButton.innerHTML = "";
+					nextButton.disabled = true
+					nextButton.style.backgroud = "#ccc";
+				}
+			}
+
+			startQuiz();
+		</script>
+		<footer><p>CS1102 - Course Project - 2024/2025 Semester B</p>
+          <p>Choi Lok Sze 58535408</p>
+          <p>Hui Chun Kit 57894120</p>
+          <p>Wong Yee Shan 57859626</p>
+          <p>Yung Ka Hei 57217494</p>
+        </footer>
+	</body>
+
+	</html>
